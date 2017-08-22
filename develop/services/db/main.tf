@@ -51,11 +51,12 @@ resource "google_sql_database_instance" "failover" {
   region               = "${var.gcp_region}"
   project              = "${var.gcp_project}"
 
-  # database_version = "${var.cloudsql_version}"
+  database_version = "${var.cloudsql_version}"
 
   replica_configuration {
     failover_target = true
   }
+
   settings {
     tier = "${var.cloudsql_tier}" # disk_type = "${var.disk_type}"
 
